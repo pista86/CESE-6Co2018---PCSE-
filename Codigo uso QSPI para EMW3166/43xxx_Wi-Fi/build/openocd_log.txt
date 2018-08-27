@@ -1,0 +1,1797 @@
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.557086
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 7620 bytes in 0.122331s (60.830 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.558676
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 8000 bytes in 0.091778s (85.124 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.558676
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+Error: checksum mismatch
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.555497
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+auto erase enabled
+Info : device id = 0x30006441
+Info : flash size = 1024kbytes
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x2001dc2c
+wrote 344064 bytes from file build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/binary/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO.stripped.elf in 9.077340s (37.015 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.560265
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.558676
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 7620 bytes in 0.119958s (62.033 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.555497
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 8000 bytes in 0.090326s (86.492 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.560265
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+Error: checksum mismatch
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.555497
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+auto erase enabled
+Info : device id = 0x30006441
+Info : flash size = 1024kbytes
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x2001dc2c
+wrote 344064 bytes from file build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/binary/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO.stripped.elf in 9.015026s (37.271 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.555497
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.561854
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 7620 bytes in 0.118339s (62.882 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.558676
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 8000 bytes in 0.088544s (88.233 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.560265
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+Error: checksum mismatch
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.558676
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+auto erase enabled
+Info : device id = 0x30006441
+Info : flash size = 1024kbytes
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x2001dc2c
+wrote 475136 bytes from file build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/binary/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO.stripped.elf in 12.480407s (37.178 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.560265
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.558676
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 7620 bytes in 0.119368s (62.340 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.555497
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 8000 bytes in 0.091067s (85.788 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.555497
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+Error: checksum mismatch
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.555497
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+auto erase enabled
+Info : device id = 0x30006441
+Info : flash size = 1024kbytes
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x2001dc2c
+wrote 344064 bytes from file build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/binary/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO.stripped.elf in 9.055997s (37.102 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.555497
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.555497
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 7620 bytes in 0.120788s (61.607 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.555497
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 8000 bytes in 0.087721s (89.061 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.561854
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+Error: checksum mismatch
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.558676
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+auto erase enabled
+Info : device id = 0x30006441
+Info : flash size = 1024kbytes
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x2001dc2c
+wrote 344064 bytes from file build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/binary/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO.stripped.elf in 9.058469s (37.092 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.563444
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.558676
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 7620 bytes in 0.121260s (61.367 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.558676
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 8000 bytes in 0.088983s (87.798 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.561854
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+Error: checksum mismatch
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.561854
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+auto erase enabled
+Info : device id = 0x30006441
+Info : flash size = 1024kbytes
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x2001dc2c
+wrote 475136 bytes from file build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/binary/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO.stripped.elf in 12.406655s (37.399 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.563444
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.544591
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.544591
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.549340
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.544591
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.544591
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.544591
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.549340
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' 
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+in procedure 'reset' 
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.549340
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.544591
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.544591
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.544591
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.549340
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.544591
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.544591
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' 
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+in procedure 'reset' 
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.549340
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.544591
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.544591
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.549340
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.544591
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.549340
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+TARGET: stm32f4x.cpu - Not halted
+in procedure 'reset' called at file "./tools/OpenOCD/stm32f4x-flash-app.cfg", line 2
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.549340
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 100ms
+Info : Previous state query failed, trying to reconnect
+Error: jtag status contains invalid mode value - communication failure
+Polling target stm32f4x.cpu failed, trying to reexamine
+Examination failed, GDB will be halted. Polling again in 300ms
+Error: mem2array: Read @ 0xe0042004, w=4, cnt=1, failed
+tools/OpenOCD/mem_helper.tcl:6: Error: 
+in procedure 'reset' 
+in procedure 'ocd_bouncer' 
+in procedure 'ocd_process_reset' 
+in procedure 'ocd_process_reset_inner' called at file "embedded:startup.tcl", line 248
+in procedure 'stm32f4x.cpu' called at file "embedded:startup.tcl", line 299
+in procedure 'ocd_bouncer' 
+in procedure 'mmw' 
+in procedure 'mrw' called at file "tools/OpenOCD/mem_helper.tcl", line 16
+at file "tools/OpenOCD/mem_helper.tcl", line 6
+
+in procedure 'reset' 
+in procedure 'ocd_bouncer'
+
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.546103
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 7620 bytes in 0.121149s (61.424 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.546103
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+verified 8000 bytes in 0.089647s (87.147 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.546103
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x2000002e msp: 0x2001dc2c
+Error: checksum mismatch
+
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.554029
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+stm32f4x.cpu: target state: halted
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000588 msp: 0x2001dc2c
+auto erase enabled
+Info : device id = 0x30006441
+Info : flash size = 1024kbytes
+stm32f4x.cpu: target state: halted
+target halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x20000046 msp: 0x2001dc2c
+wrote 475136 bytes from file build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/binary/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO.stripped.elf in 12.466842s (37.219 KiB/s)
+shutdown command invoked
+Open On-Chip Debugger 0.10.0-dev-00224-gb40738f-dirty (2016-09-08-16:53)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
+adapter speed: 2000 kHz
+adapter_nsrst_delay: 100
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+adapter_nsrst_delay: 100
+none separate
+jtag_init
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : Unable to match requested speed 2000 kHz, using 1800 kHz
+Info : clock speed 1800 kHz
+Info : STLINK v2 JTAG v31 API v2 SWIM v7 VID 0x0483 PID 0x3748
+Info : using stlink api v2
+Info : Target voltage: 3.552444
+Info : stm32f4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+shutdown command invoked

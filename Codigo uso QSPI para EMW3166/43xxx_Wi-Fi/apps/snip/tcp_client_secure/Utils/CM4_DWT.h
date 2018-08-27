@@ -1,0 +1,4 @@
+#define DWT_CTRL_ADDRESS            0xE0001000
+#define DWT_CYCCNT_ADDRESS          0xE0001004
+
+#define CLOCKS_PER_SECOND   CPU_CLOCK_HZ

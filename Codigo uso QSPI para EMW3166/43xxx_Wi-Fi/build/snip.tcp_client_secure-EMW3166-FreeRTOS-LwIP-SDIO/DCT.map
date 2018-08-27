@@ -1,0 +1,100 @@
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+ .data          0x0000000000000000        0x0 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+ .bss           0x0000000000000000        0x0 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+ .text._start   0x0000000000000000        0xe build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+DCT1_FLASH       0x0000000008004000 0x0000000000004000 xr
+DCT2_FLASH       0x0000000008008000 0x0000000000004000 xr
+APP_FLASH        0x000000000800c000 0x00000000000f4000 xr
+SRAM             0x0000000020000000 0x0000000000040000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000000320                __STACKSIZE__ = 0x320
+
+.glue_7         0x0000000008004000        0x0
+ .glue_7        0x0000000008004000        0x0 linker stubs
+
+.glue_7t        0x0000000008004000        0x0
+ .glue_7t       0x0000000008004000        0x0 linker stubs
+
+.vfp11_veneer   0x0000000008004000        0x0
+ .vfp11_veneer  0x0000000008004000        0x0 linker stubs
+
+.v4_bx          0x0000000008004000        0x0
+ .v4_bx         0x0000000008004000        0x0 linker stubs
+
+.iplt           0x0000000008004000        0x0
+ .iplt          0x0000000008004000        0x0 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+
+.igot.plt       0x0000000020000000        0x0
+ .igot.plt      0x0000000020000000        0x0 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+
+.rodata         0x0000000008004000     0x1f40
+                0x0000000008004000                dct_location = .
+ *(.rodata.initial_dct)
+ .rodata.initial_dct
+                0x0000000008004000     0x1f40 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+ *(.rodata.wiced_apps_lut)
+ *(.rodata.wiced_apps_lut_fill)
+ *(.rodata._app_dct)
+                0x0000000008005f40                dct_end = .
+                0x0000000000004000                PROVIDE (dct_full_size_loc, LENGTH (DCT1_FLASH))
+                0x0000000000001f40                PROVIDE (dct_used_size_loc, (dct_end - ORIGIN (DCT1_FLASH)))
+LOAD build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+LOAD /home/marcelo/Documents/WICED-Studio-6.2/43xxx_Wi-Fi/tools/ARM_GNU/Linux64/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/libstdc++.a
+LOAD /home/marcelo/Documents/WICED-Studio-6.2/43xxx_Wi-Fi/tools/ARM_GNU/Linux64/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/libm.a
+START GROUP
+LOAD /home/marcelo/Documents/WICED-Studio-6.2/43xxx_Wi-Fi/tools/ARM_GNU/Linux64/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/libgcc.a
+LOAD /home/marcelo/Documents/WICED-Studio-6.2/43xxx_Wi-Fi/tools/ARM_GNU/Linux64/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/libc.a
+END GROUP
+OUTPUT(build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/DCT.elf elf32-littlearm)
+
+.rel.dyn        0x0000000008005f40        0x0
+ .rel.iplt      0x0000000008005f40        0x0 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+
+.debug_info     0x0000000000000000     0x1227
+ .debug_info    0x0000000000000000     0x1227 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+
+.debug_abbrev   0x0000000000000000      0x18e
+ .debug_abbrev  0x0000000000000000      0x18e build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+
+.debug_aranges  0x0000000000000000       0x20
+ .debug_aranges
+                0x0000000000000000       0x20 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+
+.debug_ranges   0x0000000000000000       0x10
+ .debug_ranges  0x0000000000000000       0x10 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+
+.debug_line     0x0000000000000000      0x1c1
+ .debug_line    0x0000000000000000      0x1c1 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+
+.debug_str      0x0000000000000000     0x247c
+ .debug_str     0x0000000000000000     0x247c build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+                                       0x2517 (size before relaxing)
+
+.comment        0x0000000000000000       0x7e
+ .comment       0x0000000000000000       0x7e build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+                                         0x7f (size before relaxing)
+
+.ARM.attributes
+                0x0000000000000000       0x33
+ .ARM.attributes
+                0x0000000000000000       0x33 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+
+.debug_frame    0x0000000000000000       0x30
+ .debug_frame   0x0000000000000000       0x30 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+
+Cross Reference Table
+
+Symbol                                            File
+_start                                            build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+dct_full_size_loc                                 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o
+dct_used_size_loc                                 build/snip.tcp_client_secure-EMW3166-FreeRTOS-LwIP-SDIO/internal_dct.o

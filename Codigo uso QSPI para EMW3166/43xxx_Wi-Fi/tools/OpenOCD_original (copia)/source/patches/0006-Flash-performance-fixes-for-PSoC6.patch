@@ -1,0 +1,664 @@
+From 43060a26ea45d8ee217bebaca025646536ec5860 Mon Sep 17 00:00:00 2001
+From: Broadcom Wiced <broadcom_wiced@broadcom.local>
+Date: Fri, 12 Jan 2018 14:50:36 -0800
+Subject: [PATCH 6/6] Flash performance fixes for PSoC6
+
+---
+ src/flash/nor/psoc6.c | 277 ++++++++++++++++++++++++++++++++++----------------
+ tcl/target/psoc6.cfg  | 124 +++++++++++++---------
+ 2 files changed, 262 insertions(+), 139 deletions(-)
+
+diff --git a/src/flash/nor/psoc6.c b/src/flash/nor/psoc6.c
+index 2d5a0934..bf342290 100644
+--- a/src/flash/nor/psoc6.c
++++ b/src/flash/nor/psoc6.c
+@@ -24,6 +24,7 @@
+ #include <time.h>
+ 
+ #include "imp.h"
++#include "target/target.h"
+ #include "target/cortex_m.h"
+ #include "target/breakpoints.h"
+ #include "target/target_type.h"
+@@ -43,11 +44,6 @@
+ #define RAM_STACK_WA_SIZE               2048u
+ #define PSOC6_SPCIF_GEOMETRY            0x4025F00Cu
+ 
+-#define SFLASH_USER_INDEX               0
+-#define SFLASH_NAR_INDEX                1
+-#define SFLASH_KEY_INDEX                2
+-#define SFLASH_TOC2_INDEX               3
+-
+ #define PROTECTION_UNKNOWN              0x00u
+ #define PROTECTION_VIRGIN               0x01u
+ #define PROTECTION_NORMAL               0x02u
+@@ -85,11 +81,9 @@
+ #define SROMAPI_STATUS_MSK                  0xF0000000u
+ #define SROMAPI_STAT_SUCCESS                0xA0000000u
+ #define SROMAPI_DATA_LOCATION_MSK           0x00000001u
++#define SROMAPI_CALL_TIMEOUT_MS             1500
+ 
+-struct row_region {
+-	uint32_t addr;
+-	size_t size;
+-};
++#define USE_ASYNC_FLASH_ALGORITHM           1
+ 
+ struct psoc6_target_info {
+ 	uint32_t silicon_id;
+@@ -104,6 +98,11 @@ struct timeout {
+ 	long timeout_ms;
+ };
+ 
++struct row_region {
++	uint32_t addr;
++	size_t size;
++};
++
+ static struct row_region safe_sflash_regions[] = {
+ 	{0x16000800, 0x800},	/* SFLASH: User Data */
+ 	{0x16001A00, 0x200},	/* SFLASH: NAR */
+@@ -111,7 +110,12 @@ static struct row_region safe_sflash_regions[] = {
+ 	{0x16007C00, 0x400},	/* SFLASH: TOC2 */
+ };
+ 
++#define SFLASH_NUM_REGIONS (sizeof(safe_sflash_regions) / sizeof(safe_sflash_regions[0]))
++
+ static struct working_area *g_stack_area;
++
++static struct armv7m_algorithm g_armv7m_info;
++
+ /**************************************************************************************************
+  * Initializes timeout_s structure with given timeout in milliseconds
+  *************************************************************************************************/
+@@ -133,10 +137,80 @@ static bool timeout_expired(struct timeout *to)
+  * Prepares PSoC6 for running pseudo flash algorithm. This function allocates Working Area for
+  * the algorithm and for CPU Stack.
+  *************************************************************************************************/
++#if (USE_ASYNC_FLASH_ALGORITHM)
+ static int sromalgo_prepare(struct target *target)
+ {
++	static const uint16_t async_algo[] = {
++		0x4802,	/* ldr	r0, =flag */
++		0x2800,	/* cmp	r0, #0    */
++		0xD0FC,	/* beq	start     */
++		0xBE00,	/* bkpt	#0        */
++		/* flag: .word 0  */
++		0x0000, 0x0000, 0x0000, 0x0000,
++	};
++
+ 	int hr;
+ 
++	/* Initialize Vector Table Offset register (in case FW modified it) */
++	hr = target_write_u32(target, 0xE000ED08, 0x00000000);
++	if (hr != ERROR_OK)
++		return hr;
++
++	/* Restore THUMB bit in xPSR register */
++	const struct armv7m_common *cm = target_to_armv7m(target);
++	hr = cm->store_core_reg_u32(target, ARMV7M_xPSR, 0x01000000);
++	if (hr != ERROR_OK)
++		return hr;
++
++	/* Allocate Working Area for Stack and Flash algorithm */
++	hr = target_alloc_working_area(target, RAM_STACK_WA_SIZE, &g_stack_area);
++	if (hr != ERROR_OK)
++		return hr;
++
++	memset(&g_armv7m_info, 0, sizeof(g_armv7m_info));
++	g_armv7m_info.common_magic = ARMV7M_COMMON_MAGIC;
++	g_armv7m_info.core_mode = ARM_MODE_THREAD;
++
++	struct reg_param reg_params;
++	init_reg_param(&reg_params, "sp", 32, PARAM_OUT);
++	buf_set_u32(reg_params.value, 0, 32, g_stack_area->address + g_stack_area->size);
++
++	/* Write async algorithm to target RAM */
++	hr = target_write_buffer(target, g_stack_area->address, sizeof(async_algo),
++			(uint8_t *)async_algo);
++	if (hr != ERROR_OK)
++		goto destroy_rp_free_wa;
++
++	hr = target_start_algorithm(target, 0, NULL, 1, &reg_params, g_stack_area->address,
++			0, &g_armv7m_info);
++	if (hr != ERROR_OK)
++		goto destroy_rp_free_wa;
++
++	destroy_reg_param(&reg_params);
++
++	return hr;
++
++destroy_rp_free_wa:
++	/* Something went wrong, do some cleanup */
++	destroy_reg_param(&reg_params);
++
++	if (g_stack_area) {
++		target_free_working_area(target, g_stack_area);
++		g_stack_area = NULL;
++	}
++
++	return hr;
++}
++#else
++static int sromalgo_prepare(struct target *target)
++{
++	int hr;
++
++	/* Initialize Vector Table Offset register (in case FW modified it) */
++	hr = target_write_u32(target, 0xE000ED08, 0x00000000);
++	if (hr != ERROR_OK)
++		return hr;
++
+ 	/* Allocate Working Area for Stack and Flash algorithm */
+ 	hr = target_alloc_working_area(target, RAM_STACK_WA_SIZE, &g_stack_area);
+ 	if (hr != ERROR_OK)
+@@ -159,10 +233,35 @@ exit_free_wa:
+ 
+ 	return hr;
+ }
++#endif
+ 
+ /**************************************************************************************************
+  * Releases working area
+  *************************************************************************************************/
++#if (USE_ASYNC_FLASH_ALGORITHM)
++static int sromalgo_release(struct target *target)
++{
++	int hr;
++
++	hr = target_write_u32(target, g_stack_area->address + 12, 0x01);
++	if (hr != ERROR_OK)
++		goto exit_free_wa;
++
++	hr = target_wait_algorithm(target, 0, NULL, 0, NULL, 0,
++			SROMAPI_CALL_TIMEOUT_MS, &g_armv7m_info);
++	if (hr != ERROR_OK)
++		goto exit_free_wa;
++
++exit_free_wa:
++	/* Free Stack/Flash algorithm working area */
++	if (g_stack_area) {
++		target_free_working_area(target, g_stack_area);
++		g_stack_area = NULL;
++	}
++
++	return hr;
++}
++#else
+ static int sromalgo_release(struct target *target)
+ {
+ 	int hr = ERROR_OK;
+@@ -175,6 +274,7 @@ static int sromalgo_release(struct target *target)
+ 
+ 	return hr;
+ }
++#endif
+ 
+ /**************************************************************************************************
+  * Runs pseudo flash algorithm. Algorithm itself consist of couple of NOPs followed by BKPT
+@@ -183,6 +283,13 @@ static int sromalgo_release(struct target *target)
+  * SROM API code.
+  * This approach is borrowed from PSoC4 Flash Driver.
+  *************************************************************************************************/
++#if (USE_ASYNC_FLASH_ALGORITHM)
++static int sromalgo_run(struct target *target)
++{
++	(void)target;
++	return ERROR_OK;
++}
++#else
+ static int sromalgo_run(struct target *target)
+ {
+ 	int hr;
+@@ -206,11 +313,13 @@ static int sromalgo_run(struct target *target)
+ 		return hr;
+ 
+ 	hr = target_run_algorithm(target, 0, NULL, 1, &reg_params, g_stack_area->address,
+-			0, 150, &armv7m_info);
++			0, SROMAPI_CALL_TIMEOUT_MS, &armv7m_info);
++
++	destroy_reg_param(&reg_params);
+ 
+ 	return hr;
+ }
+-
++#endif
+ /**************************************************************************************************
+  * Waits for expected IPC lock status.
+  * PSoC6 uses IPC structures for inter-core communication. Same IPCs are used to invoke SROM API.
+@@ -243,6 +352,11 @@ static int ipc_poll_lock_stat(struct target *target, uint32_t ipc_id, bool lock_
+ 			return ERROR_OK;
+ 	}
+ 
++	if (target->coreid) {
++		LOG_WARNING("SROM API calls via CM4 target is supported on single-core PSoC6 devices only. "
++			"Please perform all Flash-related operations via CM0+ target on dual-core devices.");
++	}
++
+ 	LOG_ERROR("Timeout polling IPC Lock Status");
+ 	return ERROR_TARGET_TIMEOUT;
+ }
+@@ -483,6 +597,34 @@ static int psoc6_get_info(struct flash_bank *bank, char *buf, int buf_size)
+ 	return ERROR_OK;
+ }
+ 
++/**************************************************************************************************
++ * Returns true if flash bank name represents Supervisory Flash
++ *************************************************************************************************/
++static bool is_sflash_bank(struct flash_bank *bank)
++{
++	for (size_t i = 0; i < SFLASH_NUM_REGIONS; i++) {
++		if (bank->base == safe_sflash_regions[i].addr)
++			return true;
++	}
++
++	return false;
++}
++
++/**************************************************************************************************
++ * Returns true if flash bank name represents Work Flash
++ *************************************************************************************************/
++static inline bool is_wflash_bank(struct flash_bank *bank)
++{
++	return (bank->base == MEM_BASE_WFLASH);
++}
++
++/**************************************************************************************************
++ * Returns true if flash bank name represents Main Flash
++ *************************************************************************************************/
++static inline bool is_mflash_bank(struct flash_bank *bank)
++{
++	return (bank->base == MEM_BASE_MFLASH);
++}
+ 
+ /**************************************************************************************************
+  * Probes the device and populates related data structures with target flash geometry data.
+@@ -513,36 +655,27 @@ static int psoc6_probe(struct flash_bank *bank)
+ 		bank->sectors = NULL;
+ 	}
+ 
+-	uint32_t base_addr;
+-	size_t bank_size;
++	size_t bank_size = 0;
+ 
+-	if (strstr(bank->name, "main_flash") == bank->name) {
+-		base_addr = MEM_BASE_MFLASH;
++	if (is_mflash_bank(bank))
+ 		bank_size = flash_sz_bytes;
+-	} else if (strstr(bank->name, "work_flash") == bank->name) {
+-		base_addr = MEM_BASE_WFLASH;
++	else if (is_wflash_bank(bank))
+ 		bank_size = MEM_WFLASH_SIZE;
+-	} else if (strstr(bank->name, "super_flash_user") == bank->name) {
+-		base_addr = safe_sflash_regions[SFLASH_USER_INDEX].addr;
+-		bank_size = safe_sflash_regions[SFLASH_USER_INDEX].size;
+-	} else if (strstr(bank->name, "super_flash_nar") == bank->name) {
+-		base_addr = safe_sflash_regions[SFLASH_NAR_INDEX].addr;
+-		bank_size = safe_sflash_regions[SFLASH_NAR_INDEX].size;
+-	} else if (strstr(bank->name, "super_flash_key") == bank->name) {
+-		base_addr = safe_sflash_regions[SFLASH_KEY_INDEX].addr;
+-		bank_size = safe_sflash_regions[SFLASH_KEY_INDEX].size;
+-	} else if (strstr(bank->name, "super_flash_toc2") == bank->name) {
+-		base_addr = safe_sflash_regions[SFLASH_TOC2_INDEX].addr;
+-		bank_size = safe_sflash_regions[SFLASH_TOC2_INDEX].size;
+-	} else {
+-		LOG_ERROR("Unknown flash type given, should be 'main_flash', 'work_flash', 'super_flash_user', "
+-			"'super_flash_nar', 'super_flash_key' or 'super_flash_toc2' suffixed by '_cm0' or '_cm4'");
++	else if (is_sflash_bank(bank)) {
++		for (size_t i = 0; i < SFLASH_NUM_REGIONS; i++) {
++			if (safe_sflash_regions[i].addr == bank->base) {
++				bank_size = safe_sflash_regions[i].size;
++				break;
++			}
++		}
++	}
+ 
++	if (bank_size == 0) {
++		LOG_ERROR("Invalid Flash Bank base address in config file");
+ 		return ERROR_FLASH_BANK_INVALID;
+ 	}
+ 
+ 	size_t num_sectors = bank_size / row_sz;
+-	bank->base = base_addr;
+ 	bank->size = bank_size;
+ 	bank->chip_width = 4;
+ 	bank->bus_width = 4;
+@@ -558,9 +691,6 @@ static int psoc6_probe(struct flash_bank *bank)
+ 		bank->sectors[i].is_protected = -1;
+ 	}
+ 
+-	if (bank->target->coreid == 0)
+-		hr = sromalgo_release(target);
+-
+ 	psoc6_info->is_probed = true;
+ 	psoc6_info->main_flash_sz = flash_sz_bytes;
+ 	psoc6_info->row_sz = row_sz;
+@@ -584,29 +714,6 @@ static int psoc6_auto_probe(struct flash_bank *bank)
+ 	return hr;
+ }
+ 
+-/**************************************************************************************************
+- * Returns true if flash bank name represents Supervisory Flash
+- *************************************************************************************************/
+-static bool is_sflash_bank(struct flash_bank *bank)
+-{
+-	const bool is_sflash = (strstr(bank->name, "super_flash_user") == bank->name) || \
+-		(strstr(bank->name, "super_flash_nar") == bank->name) || \
+-		(strstr(bank->name, "super_flash_key") == bank->name) || \
+-		(strstr(bank->name, "super_flash_toc2") == bank->name);
+-
+-	return is_sflash;
+-}
+-
+-/**************************************************************************************************
+- * Returns true if flash bank name represents Work Flash
+- *************************************************************************************************/
+-static bool is_wflash_bank(struct flash_bank *bank)
+-{
+-	const bool is_wflash = (strstr(bank->name, "work_flash") == bank->name);
+-
+-	return is_wflash;
+-}
+-
+ /**************************************************************************************************
+  * Erases single sector (256k) on target device
+  *************************************************************************************************/
+@@ -720,12 +827,13 @@ exit:
+ /**************************************************************************************************
+  * Programs single Flash Row
+  *************************************************************************************************/
+-static int psoc6_program_row(struct target *target,
++static int psoc6_program_row(struct flash_bank *bank,
+ 	uint32_t addr,
+ 	const uint8_t *buffer,
+-	uint32_t count,
+ 	bool is_sflash)
+ {
++	struct target *target = bank->target;
++	struct psoc6_target_info *psoc6_info = bank->driver_priv;
+ 	struct working_area *wa;
+ 	const uint32_t sromapi_req = is_sflash ? SROMAPI_WRITEROW_REQ : SROMAPI_PROGRAMROW_REQ;
+ 	uint32_t data_out;
+@@ -733,7 +841,7 @@ static int psoc6_program_row(struct target *target,
+ 
+ 	LOG_DEBUG("Programming ROW @%08X", addr);
+ 
+-	hr = target_alloc_working_area(target, count + 32, &wa);
++	hr = target_alloc_working_area(target, psoc6_info->row_sz + 32, &wa);
+ 	if (hr != ERROR_OK)
+ 		goto exit;
+ 
+@@ -755,7 +863,7 @@ static int psoc6_program_row(struct target *target,
+ 	if (hr != ERROR_OK)
+ 		goto exit_free_wa;
+ 
+-	hr = target_write_buffer(target, wa->address + 0x10, count, buffer);
++	hr = target_write_buffer(target, wa->address + 0x10, psoc6_info->row_sz, buffer);
+ 	if (hr != ERROR_OK)
+ 		goto exit_free_wa;
+ 
+@@ -786,32 +894,25 @@ static int psoc6_program(struct flash_bank *bank,
+ 	if (hr != ERROR_OK)
+ 		return hr;
+ 
+-	uint32_t remaining = count;
+ 	uint8_t page_buf[psoc6_info->row_sz];
+-	uint32_t addr, size, src_offset, max_address;
+-
+-	src_offset = 0;
+-	addr = bank->base + offset;
+-	max_address = (addr + count);
+-	while (addr < max_address) {
+-
+-		size = psoc6_info->row_sz;
+-		if (remaining < psoc6_info->row_sz) {
+-			memset(page_buf, 0x00, size);
+-			memcpy(page_buf, &buffer[src_offset], remaining);
+-			size = remaining;
+-		} else
+-			memcpy(page_buf, &buffer[src_offset], size);
+-
+-		hr = psoc6_program_row(target, addr, page_buf, size, is_sflash);
++
++	while (count) {
++		uint32_t row_offset = offset % psoc6_info->row_sz;
++		uint32_t aligned_addr = bank->base + offset - row_offset;
++		uint32_t row_bytes = MIN(psoc6_info->row_sz - row_offset, count);
++
++		memset(page_buf, 0, sizeof(page_buf));
++		memcpy(&page_buf[row_offset], buffer, row_bytes);
++
++		hr = psoc6_program_row(bank, aligned_addr, page_buf, is_sflash);
+ 		if (hr != ERROR_OK) {
+-			LOG_ERROR("Failed to program Flash at address 0x%08X", addr);
++			LOG_ERROR("Failed to program Flash at address 0x%08X", aligned_addr);
+ 			break;
+ 		}
+ 
+-		src_offset += size;
+-		addr = addr + size;
+-		remaining -= size;
++		buffer += row_bytes;
++		offset += row_bytes;
++		count -= row_bytes;
+ 	}
+ 
+ 	hr = sromalgo_release(target);
+@@ -894,7 +995,7 @@ int handle_reset_halt(struct target *target)
+ 	if (is_cm0) {
+ 		/* Reset the CM0 by asserting SYSRESETREQ. This will also reset CM4 */
+ 		LOG_INFO("psoc6.cm0: bkpt @0x%08X, issuing SYSRESETREQ", reset_addr);
+-		hr = mem_ap_write_atomic_u32(cm->debug_ap,
++		mem_ap_write_atomic_u32(cm->debug_ap,
+ 				NVIC_AIRCR,
+ 				AIRCR_VECTKEY | AIRCR_SYSRESETREQ);
+ 
+@@ -903,11 +1004,9 @@ int handle_reset_halt(struct target *target)
+ 		dap_dp_init(cm->debug_ap->dap);
+ 	} else {
+ 		LOG_INFO("psoc6.cm4: bkpt @0x%08X, issuing VECTRESET", reset_addr);
+-		hr = mem_ap_write_atomic_u32(cm->debug_ap,
++		mem_ap_write_atomic_u32(cm->debug_ap,
+ 				NVIC_AIRCR,
+ 				AIRCR_VECTKEY | AIRCR_VECTRESET);
+-		if (hr != ERROR_OK)
+-			return hr;
+ 	}
+ 
+ 	target_wait_state(target, TARGET_HALTED, IPC_TIMEOUT_MS);
+@@ -915,7 +1014,7 @@ int handle_reset_halt(struct target *target)
+ 	/* Remove the break point */
+ 	breakpoint_remove(target, reset_addr);
+ 
+-	return hr;
++	return ERROR_OK;
+ }
+ 
+ COMMAND_HANDLER(psoc6_handle_reset_halt)
+diff --git a/tcl/target/psoc6.cfg b/tcl/target/psoc6.cfg
+index e9263f68..d6c5a04a 100644
+--- a/tcl/target/psoc6.cfg
++++ b/tcl/target/psoc6.cfg
+@@ -1,13 +1,18 @@
++#
++# Configuration script for Cypress PSoC6 family of microcontrollers (CY8C6xxx)
++# PSoC6 is a dual-core device with CM0+ and CM4 cores. Both cores share
++# the same Flash/RAM/MMIO address space.
++#
++
+ source [find target/swj-dp.tcl]
+-source [find mem_helper.tcl]
+ 
+ adapter_khz 1000
+ 
+ global _CHIPNAME
+ if { [info exists CHIPNAME] } {
+-   set _CHIPNAME $CHIPNAME
++	set _CHIPNAME $CHIPNAME
+ } else {
+-   set _CHIPNAME psoc6
++	set _CHIPNAME psoc6
+ }
+ 
+ global TARGET
+@@ -18,74 +23,47 @@ swj_newdap $_CHIPNAME cpu -irlen 4 -ircapture 0x1 -irmask 0xf
+ # Is CM0 Debugging enabled ?
+ global _ENABLE_CM0
+ if { [info exists ENABLE_CM0] } {
+-   set _ENABLE_CM0 $ENABLE_CM0
++	set _ENABLE_CM0 $ENABLE_CM0
+ } else {
+-   set _ENABLE_CM0 1
++	set _ENABLE_CM0 1
+ }
+ 
+ # Is CM4 Debugging enabled ?
+ global _ENABLE_CM4
+ if { [info exists ENABLE_CM4] } {
+-   set _ENABLE_CM4 $ENABLE_CM4
++	set _ENABLE_CM4 $ENABLE_CM4
+ } else {
+-   set _ENABLE_CM4 1
++	set _ENABLE_CM4 1
+ }
+ 
+ global _WORKAREASIZE_CM0
+ if { [info exists WORKAREASIZE_CM0] } {
+-   set _WORKAREASIZE_CM0 $WORKAREASIZE_CM0
++	set _WORKAREASIZE_CM0 $WORKAREASIZE_CM0
+ } else {
+-   set _WORKAREASIZE_CM0 0x4000
++	set _WORKAREASIZE_CM0 0x4000
+ }
+ 
+ global _WORKAREASIZE_CM4
+ if { [info exists WORKAREASIZE_CM4] } {
+-   set _WORKAREASIZE_CM4 $WORKAREASIZE_CM4
++	set _WORKAREASIZE_CM4 $WORKAREASIZE_CM4
+ } else {
+-   set _WORKAREASIZE_CM4 0x4000
++	set _WORKAREASIZE_CM4 0x4000
+ }
+ 
+ global _WORKAREAADDR_CM0
+ if { [info exists WORKAREAADDR_CM0] } {
+-   set _WORKAREAADDR_CM0 $WORKAREAADDR_CM0
++	set _WORKAREAADDR_CM0 $WORKAREAADDR_CM0
+ } else {
+-   set _WORKAREAADDR_CM0 0x08000000
++	set _WORKAREAADDR_CM0 0x08000000
+ }
+ 
+ global _WORKAREAADDR_CM4
+ if { [info exists WORKAREAADDR_CM4] } {
+-   set _WORKAREAADDR_CM4 $WORKAREAADDR_CM4
++	set _WORKAREAADDR_CM4 $WORKAREAADDR_CM4
+ } else {
+-   set _WORKAREAADDR_CM4 0x08000000
+-}
+-
+-if { $_ENABLE_CM0 } {
+-	target create ${TARGET}.cm0 cortex_m -chain-position $TARGET -ap-num 1 -coreid 0
+-	${TARGET}.cm0 configure -work-area-phys $_WORKAREAADDR_CM0 -work-area-size $_WORKAREASIZE_CM0 -work-area-backup 0
+-
+-	flash bank main_flash_cm0		psoc6 0x00000000 0 0 0 ${TARGET}.cm0
+-	flash bank work_flash_cm0		psoc6 0x00000000 0 0 0 ${TARGET}.cm0
+-	flash bank super_flash_user_cm0	psoc6 0x00000000 0 0 0 ${TARGET}.cm0
+-	flash bank super_flash_nar_cm0	psoc6 0x00000000 0 0 0 ${TARGET}.cm0
+-	flash bank super_flash_key_cm0	psoc6 0x00000000 0 0 0 ${TARGET}.cm0
+-	flash bank super_flash_toc2_cm0	psoc6 0x00000000 0 0 0 ${TARGET}.cm0
+-}
+-
+-if { $_ENABLE_CM4 } {
+-	target create ${TARGET}.cm4 cortex_m -chain-position $TARGET -ap-num 2 -coreid 1
+-	${TARGET}.cm4 configure -work-area-phys $_WORKAREAADDR_CM4 -work-area-size $_WORKAREASIZE_CM4 -work-area-backup 0
+-
+-	flash bank main_flash_cm4		psoc6 0x00000000 0 0 0 ${TARGET}.cm4
+-	flash bank work_flash_cm4		psoc6 0x00000000 0 0 0 ${TARGET}.cm4
+-	flash bank super_flash_user_cm4	psoc6 0x00000000 0 0 0 ${TARGET}.cm4
+-	flash bank super_flash_nar_cm4	psoc6 0x00000000 0 0 0 ${TARGET}.cm4
+-	flash bank super_flash_key_cm4	psoc6 0x00000000 0 0 0 ${TARGET}.cm4
+-	flash bank super_flash_toc2_cm4	psoc6 0x00000000 0 0 0 ${TARGET}.cm4
++	set _WORKAREAADDR_CM4 0x08000000
+ }
+ 
+-targets ${TARGET}.cm0
+-cortex_m reset_config sysresetreq
+-
+ proc init_reset { mode } {
+ 	global RESET_MODE
+ 	set RESET_MODE $mode
+@@ -95,16 +73,62 @@ proc init_reset { mode } {
+ 	}
+ }
+ 
+-psoc6.cpu.cm0 configure -event reset-deassert-post {
++# Utility to make 'reset halt' work as reset;halt on a target
++# It does not prevent running code after reset
++proc psoc6_deassert_post { target } {
++	# PSoC6 cleared AP registers including TAR during reset
++	# Force examine to synchronize OpenOCD target status
++	$target arp_examine
++
+ 	global RESET_MODE
+-	if { [string compare $RESET_MODE run] } {
+-		psoc6.cpu.cm0 mww 0xE000EDF0 0xA05F0003
++	if { $RESET_MODE ne "run" } {
++		$target arp_poll
++		$target arp_poll
++		set st [$target curstate]
++		if { $st eq "reset" } {
++			# we assume running state follows
++			# if reset accidentally halts, waiting is useless
++			catch { $target arp_waitstate running 100 }
++			set st [$target curstate]
++		}
++		if { $st eq "running" } {
++			echo "$target: Ran after reset and before halt..."
++			$target arp_halt
++		}
+ 	}
+ }
+ 
+-psoc6.cpu.cm4 configure -event reset-deassert-post {
+-	global RESET_MODE
+-	if { [string compare $RESET_MODE run] } {
+-		psoc6.cpu.cm4 mww 0xE000EDF0 0xA05F0003
+-	}
++if { $_ENABLE_CM0 } {
++	target create ${TARGET}.cm0 cortex_m -chain-position $TARGET -ap-num 1 -coreid 0
++	${TARGET}.cm0 configure -work-area-phys $_WORKAREAADDR_CM0 -work-area-size $_WORKAREASIZE_CM0 -work-area-backup 0
++
++	flash bank main_flash_cm0		psoc6 0x10000000 0 0 0 ${TARGET}.cm0
++	flash bank work_flash_cm0		psoc6 0x14000000 0 0 0 ${TARGET}.cm0
++	flash bank super_flash_user_cm0	psoc6 0x16000800 0 0 0 ${TARGET}.cm0
++	flash bank super_flash_nar_cm0	psoc6 0x16001A00 0 0 0 ${TARGET}.cm0
++	flash bank super_flash_key_cm0	psoc6 0x16005A00 0 0 0 ${TARGET}.cm0
++	flash bank super_flash_toc2_cm0	psoc6 0x16007C00 0 0 0 ${TARGET}.cm0
++
++	${TARGET}.cm0 cortex_m reset_config sysresetreq
++	${TARGET}.cm0 configure -event reset-deassert-post "psoc6_deassert_post ${TARGET}.cm0"
++}
++
++if { $_ENABLE_CM4 } {
++	target create ${TARGET}.cm4 cortex_m -chain-position $TARGET -ap-num 2 -coreid 1
++	${TARGET}.cm4 configure -work-area-phys $_WORKAREAADDR_CM4 -work-area-size $_WORKAREASIZE_CM4 -work-area-backup 0
++
++	flash bank main_flash_cm4		psoc6 0x10000000 0 0 0 ${TARGET}.cm4
++	flash bank work_flash_cm4		psoc6 0x14000000 0 0 0 ${TARGET}.cm4
++	flash bank super_flash_user_cm4	psoc6 0x16000800 0 0 0 ${TARGET}.cm4
++	flash bank super_flash_nar_cm4	psoc6 0x16001A00 0 0 0 ${TARGET}.cm4
++	flash bank super_flash_key_cm4	psoc6 0x16005A00 0 0 0 ${TARGET}.cm4
++	flash bank super_flash_toc2_cm4	psoc6 0x16007C00 0 0 0 ${TARGET}.cm4
++
++	${TARGET}.cm4 cortex_m reset_config vectreset
++	${TARGET}.cm4 configure -event reset-deassert-post "psoc6_deassert_post ${TARGET}.cm4"
++}
++
++if { $_ENABLE_CM0 } {
++	# Use CM0+ by default on dual-core devices
++	targets ${TARGET}.cm0
+ }
+-- 
+2.14.2
+

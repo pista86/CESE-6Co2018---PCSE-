@@ -1,0 +1,179 @@
+From 6090a5b158ad212a54510f061226ca58155b51fe Mon Sep 17 00:00:00 2001
+From: Alexandre Torgue <alexandre.torgue@st.com>
+Date: Mon, 13 Nov 2017 17:00:58 +0100
+Subject: [PATCH] Add STM32H7 config files
+
+Add 2 target files:
+-stm32h7x.cfg
+-stm32h7x_dual_bank.cfg
+
+Add 2 config files for:
+-STM32H743zi-nucleo bord
+-STM32H743i and STM32H753i eval boards.
+
+Change-Id: I2aae2c5acff4f3ff8e1bf232fda5a11a87f71703
+Signed-off-by: Alexandre TORGUE <alexandre.torgue@st.com>
+Reviewed-on: http://openocd.zylin.com/4182
+Tested-by: jenkins
+Reviewed-by: Antonio Borneo <borneo.antonio@gmail.com>
+---
+ tcl/board/st_nucleo_h743zi.cfg    | 10 +++++
+ tcl/board/stm32h7x3i_eval.cfg     | 13 ++++++
+ tcl/target/stm32h7x.cfg           | 93 +++++++++++++++++++++++++++++++++++++++
+ tcl/target/stm32h7x_dual_bank.cfg |  7 +++
+ 4 files changed, 123 insertions(+)
+ create mode 100644 tcl/board/st_nucleo_h743zi.cfg
+ create mode 100644 tcl/board/stm32h7x3i_eval.cfg
+ create mode 100644 tcl/target/stm32h7x.cfg
+ create mode 100644 tcl/target/stm32h7x_dual_bank.cfg
+
+diff --git a/tcl/board/st_nucleo_h743zi.cfg b/tcl/board/st_nucleo_h743zi.cfg
+new file mode 100644
+index 0000000..baedeb6
+--- /dev/null
++++ b/tcl/board/st_nucleo_h743zi.cfg
+@@ -0,0 +1,10 @@
++# This is an ST NUCLEO-H743ZI board with single STM32H743ZI chip.
++# http://www.st.com/en/evaluation-tools/nucleo-h743zi.html
++
++source [find interface/stlink-v2-1.cfg]
++
++transport select hla_swd
++
++source [find target/stm32h7x_dual_bank.cfg]
++
++reset_config srst_only
+diff --git a/tcl/board/stm32h7x3i_eval.cfg b/tcl/board/stm32h7x3i_eval.cfg
+new file mode 100644
+index 0000000..2949ded
+--- /dev/null
++++ b/tcl/board/stm32h7x3i_eval.cfg
+@@ -0,0 +1,13 @@
++# STM32H7[4|5]3I-EVAL: this is for the H7 eval boards.
++# This is an ST EVAL-H743XI board with single STM32H743XI chip.
++# http://www.st.com/en/evaluation-tools/stm32h743i-eval.html
++# This is an ST EVAL-H753XI board with single STM32H753XI chip.
++# http://www.st.com/en/evaluation-tools/stm32h753i-eval.html
++
++source [find interface/stlink-v2-1.cfg]
++
++transport select hla_swd
++
++source [find target/stm32h7x_dual_bank.cfg]
++
++reset_config srst_only
+diff --git a/tcl/target/stm32h7x.cfg b/tcl/target/stm32h7x.cfg
+new file mode 100644
+index 0000000..02dbed4
+--- /dev/null
++++ b/tcl/target/stm32h7x.cfg
+@@ -0,0 +1,93 @@
++# script for stm32h7x family
++
++#
++# stm32h7 devices support both JTAG and SWD transports.
++#
++source [find target/swj-dp.tcl]
++source [find mem_helper.tcl]
++
++if { [info exists CHIPNAME] } {
++   set _CHIPNAME $CHIPNAME
++} else {
++   set _CHIPNAME stm32h7x
++}
++
++set _ENDIAN little
++
++# Work-area is a space in RAM used for flash programming
++# By default use 64kB
++if { [info exists WORKAREASIZE] } {
++   set _WORKAREASIZE $WORKAREASIZE
++} else {
++   set _WORKAREASIZE 0x10000
++}
++
++#jtag scan chain
++if { [info exists CPUTAPID] } {
++   set _CPUTAPID $CPUTAPID
++} else {
++   if { [using_jtag] } {
++	  set _CPUTAPID 0x6ba00477
++   } {
++      set _CPUTAPID 0x6ba02477
++   }
++}
++
++swj_newdap $_CHIPNAME cpu -irlen 4 -ircapture 0x1 -irmask 0xf -expected-id $_CPUTAPID
++
++if {[using_jtag]} {
++ swj_newdap $_CHIPNAME bs -irlen 5
++}
++
++set _TARGETNAME $_CHIPNAME.cpu
++target create $_TARGETNAME cortex_m -endian $_ENDIAN -chain-position $_TARGETNAME
++
++$_TARGETNAME configure -work-area-phys 0x20000000 -work-area-size $_WORKAREASIZE -work-area-backup 0
++
++set _FLASHNAME $_CHIPNAME.flash
++flash bank $_FLASHNAME stm32h7x 0x08000000 0 0 0 $_TARGETNAME
++
++# Clock after reset is HSI at 64 MHz, no need of PLL
++adapter_khz 1800
++
++adapter_nsrst_delay 100
++if {[using_jtag]} {
++ jtag_ntrst_delay 100
++}
++
++# use hardware reset, connect under reset
++reset_config srst_only srst_nogate
++
++if {![using_hla]} {
++   # if srst is not fitted use SYSRESETREQ to
++   # perform a soft reset
++   cortex_m reset_config sysresetreq
++}
++
++$_TARGETNAME configure -event examine-end {
++	# Enable D3 and D1 DBG clocks
++	# DBGMCU_CR |= D3DBGCKEN | D1DBGCKEN
++	mmw 0x5C001004 0x00600000 0
++
++	# Enable debug during low power modes (uses more power)
++	# DBGMCU_CR |= DBG_STANDBY | DBG_STOP | DBG_SLEEP in D3 & D1 Domains
++	mmw 0x5C001004 0x00000187 0
++
++	# Stop watchdog counters during halt
++	# DBGMCU_APB3FZ1 |= WWDG1
++	mmw 0x5C001034 0x00000040 0
++	# DBGMCU_APB4FZ1 |= WDGLSD1
++	mmw 0x5C001054 0x00040000 0
++}
++
++$_TARGETNAME configure -event trace-config {
++	# Set TRACECLKEN; TRACE_MODE is set to async; when using sync
++	# change this value accordingly to configure trace pins
++	# assignment
++	mmw 0x5C001004 0x00100000 0
++}
++
++$_TARGETNAME configure -event reset-init {
++	# Clock after reset is HSI at 64 MHz, no need of PLL
++	adapter_khz 4000
++}
+diff --git a/tcl/target/stm32h7x_dual_bank.cfg b/tcl/target/stm32h7x_dual_bank.cfg
+new file mode 100644
+index 0000000..7e342f9
+--- /dev/null
++++ b/tcl/target/stm32h7x_dual_bank.cfg
+@@ -0,0 +1,7 @@
++# script for stm32h7x family (dual flash bank)
++source [find target/stm32h7x.cfg]
++
++# STM32H7xxxI 2Mo have a dual bank flash.
++# Add the second flash bank.
++set _FLASHNAME $_CHIPNAME.flash1
++flash bank $_FLASHNAME stm32h7x 0x08100000 0 0 0 $_TARGETNAME
+-- 
+2.7.4
+

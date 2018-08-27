@@ -1,0 +1,21 @@
+MAKEFILE MAKECMDGOALS=waf.bootloader-NoOS-EMW3166 OTA2_SUPPORT is disabled
+waf.bootloader-NoOS-EMW3166
+----------------------------------|---------|---------|
+                                  |         |  Static |
+              Module              |  Flash  |   RAM   |
+----------------------------------+---------+---------|
+App                               |       0 |       0 |
+crc                               |       0 |       0 |
+Host MCU-family library           |       0 |    8209 |
+Interrupt Vectors                 |       0 |       0 |
+libc                              |       0 |       0 |
+platform                          |       0 |      24 |
+Ring_Buffer                       |       0 |       0 |
+SPI_Flash_Library_EMW3166         |       0 |       0 |
+Startup Stack & Link Script fill  |       0 |       0 |
+WWD                               |       0 |       4 |
+----------------------------------+---------+---------|
+TOTAL (bytes)                     |       0 |   16474 |
+----------------------------------|---------|---------|
+
+Build complete
