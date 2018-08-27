@@ -1,4 +1,22 @@
 ===============================================================================
+
+                                   LEER
+
+===============================================================================
+
+Ubicaciones del código de manejo de QSPI desarrollado para la CESE-6Co2018---PCSE:
+
+Función de test: static void test_CESE_protocolos(void);
+
+Alto nivel: 43xxx_Wi-Fi/apps/snip/tcp_client_secure/tcp_client_secure.c
+
+Un nivel superior: 43xxx_Wi-Fi/apps/snip/tcp_client_secure/storage/flash_memory/MX25V1635F.c
+
+Bajo nivel: 43xxx_Wi-Fi/WICED/platform/MCU/STM32F4xx/peripherals/logan_qspi.c
+
+
+
+===============================================================================
 Cypress WICED Studio Software Development Kit - README
 ===============================================================================
 
